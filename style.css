@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600&display=swap');
+
+@theme {
+  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+  --color-secondarytext: #181A18;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+.smooth-slide {
+  transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.toggle-container {
+  position: relative;
+  display: flex;
+  background: #e5e7eb;
+  padding: 2px;
+  border-radius: 12px;
+}
+
+.toggle-pill {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 0;
+}
+
+.toggle-btn {
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  transition: color 0.4s ease;
+  outline: none;
+}
+
+.toggle-btn:active {
+  scale: 0.95;
+}
+
+.pulse {
+  animation: pill-pulse 0.3s ease;
+}
+
+@keyframes pill-pulse {
+  0% {
+    transform: translateX(var(--tw-translate-x)) scale(1);
+  }
+
+  50% {
+    transform: translateX(var(--tw-translate-x)) scale(1.05);
+  }
+
+  100% {
+    transform: translateX(var(--tw-translate-x)) scale(1);
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.schedule-list {
+  max-height: 200px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #e5e7eb transparent;
+  padding-right: 12px;
+}
+
+.schedule-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  color: var(--color-secondarytext);
+  border-bottom: 1px solid #f3f4f6;
+  padding-bottom: 4px;
+  padding-top: 4px;
+}
+
+.schedule-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.schedule-list::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 10px;
+}
