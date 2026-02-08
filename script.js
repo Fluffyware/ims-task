@@ -41,7 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let months = durationMode === 'years' ? rawDur * 12 : rawDur;
         let actualDp = dpMode === 'percent' ? (otr * unformat(dpInput.value)) / 100 : unformat(dpInput.value);
         let principal = otr - actualDp, rate = months <= 12 ? 0.12 : months <= 24 ? 0.14 : 0.165;
-        const install = Math.round((principal + (principal * rate)) / months);
+        let years = months / 12;
+        let totalInterest = principal * rate * years;
+        const install = Math.round((principal + totalInterest) / months);
         const endD = new Date(); endD.setMonth(endD.getMonth() + Math.round(months));
 
         resSec.classList.remove('hidden');
